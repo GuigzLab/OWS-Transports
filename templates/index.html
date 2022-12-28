@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class='container is-max-desktop has-text-centered has-text-white'>
+    <div class='columns is-centered'>
+        <div class='column'>
+            <div>
+                <h1 class='title has-text-white mb-4'>{{title}}</h1>
+            </div>
+            <table class='table m-auto is-max-desktop'>
+                <thead>
+                    <tr>
+                        {% for head in headers %}
+                        <th>{{ head }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for res in results %}
+                    <tr>
+                        {% for r in res %}
+                        {% if r.startswith('http://www.ows.fr/pariscite/ontologies/transports') %}
+                        <td><a href= {{ url_for('uri', value=r.split('#')[1]) }}  > {{ r.split('#')[1] }} </a></td>
+                        {% elif r.startswith('http') %}
+                        <td><a href= {{ r }}  target="_blank"> {{ r }} </a></td>
+                        {% else %}
+                        <td>{{ r }}</td>
+                        {% endif %}
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,430 @@
+@prefix : <http://www.ows.fr/pariscite/ontologies/transports#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.ows.fr/pariscite/ontologies/transports> .
+
+<http://www.ows.fr/pariscite/ontologies/transports> rdf:type owl:Ontology ;
+                                                     rdfs:comment "Ontologie sur les transports"@fr ;
+                                                     owl:versionInfo "2.0.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.ows.fr/pariscite/ontologies/transports#endAt
+:endAt rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf :tripProperties ;
+       rdf:type owl:FunctionalProperty ;
+       rdfs:domain :Trip ;
+       rdfs:range :Location .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#hasPassenger
+:hasPassenger rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :tripProperties ;
+              rdfs:domain :Trip ;
+              rdfs:range :Person .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#startFrom
+:startFrom rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :tripProperties ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:domain :Trip ;
+           rdfs:range :Location .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#tripID
+:tripID rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :tripProperties ;
+        rdf:type owl:FunctionalProperty ;
+        rdfs:domain :Trip .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#tripProperties
+:tripProperties rdf:type owl:ObjectProperty ;
+                rdfs:domain :Trip .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#uses
+:uses rdf:type owl:ObjectProperty ;
+      rdfs:subPropertyOf :tripProperties ;
+      rdfs:domain :Trip ;
+      rdfs:range :Vehicle .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.ows.fr/pariscite/ontologies/transports#birthName
+:birthName rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf :personProperties ;
+           rdfs:domain :Person ;
+           rdfs:range xsd:string .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#buildingName
+:buildingName rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Building ;
+              rdfs:range xsd:string .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#carbonEmissions
+:carbonEmissions rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :vehicleProperties ;
+                 rdfs:domain :Vehicle ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#cityName
+:cityName rdf:type owl:DatatypeProperty ;
+          rdfs:domain :City ;
+          rdfs:range xsd:string .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#endTime
+:endTime rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf :tripProperties ;
+         rdf:type owl:FunctionalProperty ;
+         rdfs:range xsd:dateTime .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#licencePlate
+:licencePlate rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :vehicleProperties ;
+              rdfs:domain :Vehicle ;
+              rdfs:range xsd:string .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#locationName
+:locationName rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Location ;
+              rdfs:range xsd:string .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#personId
+:personId rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf :personProperties ;
+          rdfs:domain :Person ;
+          rdfs:range xsd:int .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#personProperties
+:personProperties rdf:type owl:DatatypeProperty .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#startTime
+:startTime rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf :tripProperties ;
+           rdf:type owl:FunctionalProperty ;
+           rdfs:range xsd:dateTime .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#transportBuildingName
+:transportBuildingName rdf:type owl:DatatypeProperty ;
+                       rdfs:domain :TransportBuilding ;
+                       rdfs:range xsd:string .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#tripID
+:tripID rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf :tripProperties ;
+        rdf:type owl:FunctionalProperty ;
+        rdfs:range xsd:int .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#tripProperties
+:tripProperties rdf:type owl:DatatypeProperty .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#vehicleModel
+:vehicleModel rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :vehicleProperties ;
+              rdfs:domain :Vehicle ;
+              rdfs:range xsd:string .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#vehicleProperties
+:vehicleProperties rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Address
+:Address rdf:type owl:Class ;
+         rdfs:subClassOf :Location .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#AirVehicle
+:AirVehicle rdf:type owl:Class ;
+            rdfs:subClassOf :Vehicle .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Airport
+:Airport rdf:type owl:Class ;
+         rdfs:subClassOf :TransportBuilding .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Bicycle
+:Bicycle rdf:type owl:Class ;
+         rdfs:subClassOf :LandVehicle .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Boat
+:Boat rdf:type owl:Class ;
+      rdfs:subClassOf :WaterVehicle .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Building
+:Building rdf:type owl:Class ;
+          rdfs:subClassOf :Location .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Bus
+:Bus rdf:type owl:Class ;
+     rdfs:subClassOf :LandVehicle .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#BusStop
+:BusStop rdf:type owl:Class ;
+         rdfs:subClassOf :TransportBuilding .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#City
+:City rdf:type owl:Class ;
+      rdfs:subClassOf :Location .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#ElectricScooter
+:ElectricScooter rdf:type owl:Class ;
+                 rdfs:subClassOf :LandVehicle .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#LandVehicle
+:LandVehicle rdf:type owl:Class ;
+             rdfs:subClassOf :Vehicle .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Location
+:Location rdf:type owl:Class .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Motorcycle
+:Motorcycle rdf:type owl:Class ;
+            rdfs:subClassOf :LandVehicle .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Person
+:Person rdf:type owl:Class .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Plane
+:Plane rdf:type owl:Class ;
+       rdfs:subClassOf :AirVehicle .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Port
+:Port rdf:type owl:Class ;
+      rdfs:subClassOf :TransportBuilding .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Taxi
+:Taxi rdf:type owl:Class ;
+      rdfs:subClassOf :LandVehicle .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Train
+:Train rdf:type owl:Class ;
+       rdfs:subClassOf :LandVehicle .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#TrainStation
+:TrainStation rdf:type owl:Class ;
+              rdfs:subClassOf :TransportBuilding .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#TransportBuilding
+:TransportBuilding rdf:type owl:Class ;
+                   rdfs:subClassOf :Building .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Trip
+:Trip rdf:type owl:Class .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Vehicle
+:Vehicle rdf:type owl:Class .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#WaterVehicle
+:WaterVehicle rdf:type owl:Class ;
+              rdfs:subClassOf :Vehicle .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://fr.dbpedia.org/resource/Tour_Eiffel
+<http://fr.dbpedia.org/resource/Tour_Eiffel> rdf:type owl:NamedIndividual ;
+                                             owl:sameAs :EiffelTower .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#A320
+:A320 rdf:type owl:NamedIndividual ,
+               :Plane ;
+      :carbonEmissions "285 g / km" ;
+      :licencePlate "A320-AIRBS" ;
+      :vehicleModel "Airbus A320" .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Address1
+:Address1 rdf:type owl:NamedIndividual ,
+                   :Address ;
+          :locationName "45 Rue des Saints-Pères, 75006 Paris" .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Alice
+:Alice rdf:type owl:NamedIndividual ,
+                :Person ;
+       :birthName "Alice" ;
+       :personId 0 .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Bob
+:Bob rdf:type owl:NamedIndividual ,
+              :Person ;
+     :birthName "Robert" ;
+     :personId 1 .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Bus399
+:Bus399 rdf:type owl:NamedIndividual ,
+                 :Bus ;
+        :carbonEmissions "104 g / km" ;
+        :licencePlate "BS-399-AM" ;
+        :vehicleModel "Bus 399" .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#CDGAirport
+:CDGAirport rdf:type owl:NamedIndividual ,
+                     :Airport ;
+            :locationName "Aéroport de Paris-Charles de Gaulle" ;
+            :transportBuildingName "Aéroport de Paris-Charles de Gaulle" .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Charles
+:Charles rdf:type owl:NamedIndividual ,
+                  :Person ;
+         :birthName "Charles" ;
+         :personId 2 .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#EiffelTower
+:EiffelTower rdf:type owl:NamedIndividual ,
+                      :Building ;
+             :buildingName "Tour Eiffel" ;
+             :locationName "Tour Eiffel" .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#MuseeOrsayRER
+:MuseeOrsayRER rdf:type owl:NamedIndividual ,
+                        :TrainStation ;
+               :locationName "Gare de Musée d'Orsay RER C" .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#OrlyAirport
+:OrlyAirport rdf:type owl:NamedIndividual ,
+                      :Airport ;
+             :locationName "Aéroport de Paris-Orly" .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Paris
+:Paris rdf:type owl:NamedIndividual ,
+                :City ;
+       :locationName "Paris" .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#RERC
+:RERC rdf:type owl:NamedIndividual ,
+               :Train ;
+      :carbonEmissions "6,2 g / km" ;
+      :licencePlate "MONA" ;
+      :vehicleModel "RER C" .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#RenaultMegane
+:RenaultMegane rdf:type owl:NamedIndividual ,
+                        :Taxi ;
+               :carbonEmissions "134 g / km" ;
+               :licencePlate "MEG-000-RNT" ;
+               :vehicleModel "Renault Megane RS 2012" .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Trip1
+:Trip1 rdf:type owl:NamedIndividual ,
+                :Trip ;
+       :endAt :EiffelTower ;
+       :hasPassenger :Alice ,
+                     :Bob ;
+       :startFrom :CDGAirport ;
+       :uses :Bus399 ,
+             :RERC ;
+       :endTime "2022-05-30T09:00:00"^^xsd:dateTime ;
+       :startTime "2022-05-30T08:00:00"^^xsd:dateTime ;
+       :tripID 0 .
+
+
+###  http://www.ows.fr/pariscite/ontologies/transports#Trip2
+:Trip2 rdf:type owl:NamedIndividual ,
+                :Trip ;
+       :endAt :OrlyAirport ;
+       :hasPassenger :Charles ;
+       :startFrom :Address1 ;
+       :uses :RenaultMegane ;
+       :endTime "2022-12-25T10:10:00"^^xsd:dateTime ;
+       :startTime "2022-12-25T06:00:00"^^xsd:dateTime ;
+       :tripID 1 .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Address
+                :Building
+                :City
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Airport
+                :BusStop
+                :Port
+                :TrainStation
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Bicycle
+                :Boat
+                :Bus
+                :ElectricScooter
+                :Motorcycle
+                :Plane
+                :Taxi
+                :Train
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

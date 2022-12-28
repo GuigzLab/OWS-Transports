@@ -1,0 +1,55 @@
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+            <a href={{ url_for('main') }} class="navbar-item has-text-success has-text-weight-bold is-size-5">
+                OWS - Transports
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    Individus
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a href={{ url_for('vehicles') }} class="navbar-item">
+                        Vehicules
+                    </a>
+                    <a href={{ url_for('persons') }} class="navbar-item">
+                        Personnes
+                    </a>
+                    <a href={{ url_for('locations') }} class="navbar-item">
+                        Lieux
+                    </a>
+                    <a href={{ url_for('trips') }} class="navbar-item">
+                        Trajets
+                    </a>
+                </div>
+            </div>
+
+            <a href={{ url_for('search') }} class="navbar-item">
+                Recherche
+            </a>
+            <!-- <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    Classes
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item">
+                        Vehicules
+                    </a>
+                    <a class="navbar-item">
+                        Personnes
+                    </a>
+                    <a class="navbar-item">
+                        Lieux
+                    </a>
+                    <a class="navbar-item">
+                        Trajets
+                    </a>
+                </div>
+            </div> -->
+        </div>
+
+    </div>
+</nav>

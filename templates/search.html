@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% set q =  request.args.get('q') %}
+
+
+<div class='container has-text-centered has-text-white'>
+    <div class='columns is-centered'>
+        <div class='column'>
+            <div>
+                {% if q %}
+                <h1 class='title has-text-white mb-4'>{{title}} pour {{q}}</h1>
+                {% else %}
+                <h1 class='title has-text-white mb-4'>{{title}}</h1>
+                {% endif %}
+                
+            </div>
+            <div class='columns is-centered'>
+                <div class="column is-two-thirds is-centered">
+                    <form action="" method="get">
+                        <input class="input is-primary" type="text" placeholder="Recherche" name="q" value={{ q if q else '' }}>
+                    </form>
+                </div>
+            </div>
+
+            {% if display %}
+            <h1 class="title has-text-white mb-4">Transports</h1>
+            <table class='table m-auto'>
+                <thead>
+                    <tr>
+                        {% for head in headers %}
+                        <th>{{ head }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for res in results %}
+                    <tr>
+                        {% for r in res %}
+                        {% if r.startswith('http://www.ows.fr/pariscite/ontologies/transports') %}
+                        <td><a href= {{ url_for('uri', value=r.split('#')[1]) }}  > {{ r.split('#')[1] }} </a></td>
+                        {% elif r.startswith('http') %}
+                        <td><a href={{ r }} target="_blank"> {{ r }} </a></td>
+                        {% else %}
+                        <td>{{ r }}</td>
+                        {% endif %}
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <h1 class="title has-text-white m-4">DBpedia</h1>
+            <table class='table m-auto'>
+                <thead>
+                    <tr>
+                        {% for head in dbp_headers %}
+                        <th>{{ head }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for res in dbp_results %}
+                    <tr>
+                        {% for r in res %}
+                        {% if r.startswith('http') %}
+                        <td><a href={{ r }} target="_blank"> {{ r }} </a></td>
+                        {% else %}
+                        <td>{{ r }}</td>
+                        {% endif %}
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

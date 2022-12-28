@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr" class="has-background-dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/x-icon">
+    <title>OWS - Projet Transports</title>
+</head>
+
+<body class="has-text-white">
+    {% include 'nav.html' %}
+    <div class="p-6">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+</body>
+
+</html>
